@@ -3,9 +3,8 @@ define('PATH', dirname(__FILE__));
 define('DS', DIRECTORY_SEPARATOR);
 define('PATH_ROOT', $_SERVER['DOCUMENT_ROOT']);
 
-
 /**
- * Automatically connects 
+ * Automatically connects
  *
  * @return void
  **/

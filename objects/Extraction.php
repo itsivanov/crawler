@@ -1,7 +1,8 @@
 <?php
 /**
- *
+ *  Class responsible for parsing tegs
  */
+
 class Extraction implements IGetTegs
 {
   private $site;
@@ -10,6 +11,12 @@ class Extraction implements IGetTegs
     $this->site = $site;
 
   }
+
+  /**
+  *  link selection
+  *
+  * @return array
+  */
   public function parsTegs(){
 
          $html = file_get_contents($this->site);

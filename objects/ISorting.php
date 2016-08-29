@@ -1,5 +1,5 @@
 <?php
 
 interface ISorting{
-  public function sortingArray();
+  public function sortingArray($a,$b);
 }

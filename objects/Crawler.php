@@ -1,8 +1,9 @@
 <?php
 
 /**
- *
+ * Class Crawler App
  */
+
 class Crawler
 {
   private $site;
@@ -11,27 +12,23 @@ class Crawler
   {
     $this->site = $site;
   }
-
+/**
+*  Filtering all links
+*  @return array
+*/
   public function getAllLink(){
 
     $allUrl = $this->site->parsTegs();
-    $counting = new Counting($allUrl);
-    $full_links = $counting->imgTags();
-
-    return $full_links;
-
+    return $allUrl;
   }
 
-  public function createPreGrid()
+/**
+* Record the result to a file
+* @param string
+*
+*/
+  public function recordResult($create_grid)
   {
-    $full_links = $this->getAllLink();
-    $grid = new Grid($full_links);
-    return $grid->formationGrid();
-  }
-
-  public function recordResult()
-  {
-     $create_grid = $this->createPreGrid();
      $date = date('d.m.Y.h.i.s');
      $path = "result/";
      $file = 'report_' . $date . '.html';

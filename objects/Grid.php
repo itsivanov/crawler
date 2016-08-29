@@ -1,7 +1,5 @@
 <?php
-/**
- *
- */
+
 class Grid implements IGrid
 {
   private $dataArray = array();
@@ -12,19 +10,23 @@ class Grid implements IGrid
     $this->dataArray = $dataArray;
 
   }
-
+/**
+* Formation of information output table
+*
+* @return string
+*/
   public function formationGrid()
   {
-      $data = '<table>';
+      $data = '<table border="1">';
       $data .= '<tr>' .
-                      '<td>Link</td>' .
-                      '<td>Count images (sorting ASC)</td>' .
-                      '<td>Duration of page processing (seconds)</td>' .
+                      '<td>URL</td>' .
+                      '<td>Number of images tags</td>' .
+                      '<td>Duration</td>' .
                       '</tr>';
       foreach($this->dataArray as $item)
-      { 
+      {
           $data .= '<tr>' .
-                       '<td>' . $item['link'] .  '</td>' .
+                       '<td>' . $item['url'] .  '</td>' .
                        '<td>' . $item['count'] . '</td>' .
                        '<td>' . $item['time'] . '</td>' .
                    '</tr>';

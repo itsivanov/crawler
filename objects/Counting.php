@@ -1,8 +1,8 @@
 <?php
 /**
- *
+ *  Class responsible for counting
  */
-class Counting implements ICounter
+class Counting implements ICounter, ISorting
 {
   private $arrUrl = array();
 
@@ -11,6 +11,11 @@ class Counting implements ICounter
     $this->arrUrl = $arrUrl;
   }
 
+/**
+* Type img tag selection
+*
+* @return array
+*/
   public function imgTags()
   {
     if(empty($this->arrUrl)){
@@ -27,7 +32,7 @@ class Counting implements ICounter
 
              $processing_time = $end_time - $begin_time;
 
-             $dataArray[$n]['link'] = $this->arrUrl[$n];
+             $dataArray[$n]['url'] = $this->arrUrl[$n];
              $dataArray[$n]['count'] = $count_tags;
              $dataArray[$n]['time'] = $processing_time;
          }
@@ -36,14 +41,20 @@ class Counting implements ICounter
           }
           return $dataArray;
   }
-
+/**
+* Sorting the array
+*
+* @param $a array
+* @param $b array
+*
+* @return integer
+*/
   public function sortingArray($a, $b)
   {
-
-          if ($a['count'] == $b['count']){
-            return 0;
-          }
-          return ($a['count'] < $b['count']) ? -1 : 1;
+      if ($a['count'] == $b['count']){
+        return 0;
+      }
+      return ($a['count'] < $b['count']) ? -1 : 1;
   }
 
 }
