@@ -7,7 +7,8 @@ class Extraction implements IGetTegs
 {
   private $site;
 
-  public function __construct($site){
+  public function __construct($site)
+  {
     $this->site = $site;
 
   }
@@ -17,7 +18,8 @@ class Extraction implements IGetTegs
   *
   * @return array
   */
-  public function parsTegs(){
+  public function parsTegs()
+  {
 
          $html = file_get_contents($this->site);
 
