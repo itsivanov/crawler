@@ -10,16 +10,16 @@ if ($argc != 2) {
 
 try{
 
-  $web_site_name = $argv[1];
-  $siteEx = new Extraction($web_site_name);
+  $webSiteName = $argv[1];
+  $siteEx = new Extraction($webSiteName);
   $crawler = new Crawler($siteEx);
   $allUrl = $crawler->getAllLink();
   $counting = new Counting($allUrl);
-  $full_links = $counting->imgTags();
-  $grid = new Grid($full_links);
-  $create_grid = $grid->formationGrid();
-  $crawler->recordResult($create_grid);
-  
+  $fullLinks = $counting->imgTags();
+  $grid = new Grid($fullLinks);
+  $createGrid = $grid->formationGrid();
+  $crawler->recordResult($createGrid);
+
   echo "Your request is complete.\r\n";
   echo "See the catalog result/report_dd.mm.yyyy.html \r\n";
 
